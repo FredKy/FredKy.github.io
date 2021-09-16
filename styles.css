@@ -89,15 +89,6 @@ body {
     opacity: 1;
   }
 
-#byte {
-    background-color: rgb(255, 238, 0);
-    color:black;
-}
-
-#remainingcards {
-    font-size: 32px;
-}
-
 header {
     background-color:lightseagreen;
 
