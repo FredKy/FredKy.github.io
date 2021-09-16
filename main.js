@@ -1,3 +1,6 @@
+var cardsLeft = 47;
+var buttons = ["håll","håll","håll","håll","håll"];
+
 var cards = [];
 for (suit = 4; suit > 0; suit--) {
   for (rank = 13; rank > 0; rank--) {
@@ -51,20 +54,6 @@ cards.forEach(element => {
 
 console.log(cards);
 
-
-/*function Deck() {
-    this.cards = [];
-    for (suit = 4; suit > 0; suit--) {
-      for (rank = 13; rank > 0; rank--) {
-        this.cards.push({
-          suit: suit,
-          rank: rank
-        });
-      }
-    }
-  }
-*/
-
 function shuffle(a) {
     let j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -79,54 +68,52 @@ function shuffleTwo(deck) {
     let tempDeck = [];
     while (deck.length != 0) {
        tempDeck.push(deck.pop());
-       //console.log(tempDeck);
     }
 
     console.log(tempDeck);
 
-    for (let i = tempDeck.length-1; i > -1; i--) {
-        let randPos = Math.floor(Math.random() * (i + 1));
+    while (tempDeck.length != 0) {
+        let randPos = Math.floor(Math.random() * (tempDeck.length));
         deck.push(tempDeck[randPos]);
-        //console.log(deck);
-        //console.log(deck.length);
+
+        const index = tempDeck.indexOf(tempDeck[randPos]);
+        if (index > -1) {
+            tempDeck.splice(index, 1);
+        }
     }
 }
 
-//console.log(Math.floor(Math.random() * (52)));
 
 shuffleTwo(cards);
-
-//console.log(cards.length);
 
 console.log(cards);
 
 function printCards(deck) {
     for (let i = 1; i < 6; i++) {
-        document.getElementById("kort"+i).innerHTML += "<img id=\"img"+i+"\"" +" src=\"poker-qr\\" + deck[i-1].rank + deck[i-1].suit +".svg\" alt=\"Pokerkort\" width=\"250\" height=\"363\">";
+        let topCard = deck.shift();
+        console.log(topCard);
+        document.getElementById("kort"+i).innerHTML += "<img id=\"img"+i+"\"" +" src=\"poker-qr\\" + topCard.rank + topCard.suit +".svg\" alt=\"Pokerkort\" width=\"250\" height=\"363\">";
 
-        
-        //console.log(deck[i].rank);
     }
 }
 
 printCards(cards);
 
-var buttons = ["håll","håll","håll","håll","håll"];
 
-function buttonClicked(b) {
-    if (buttons[b-1]=="håll") {
-        buttons[b-1]="kasta";
-        document.getElementById("kort"+b).style = "opacity: 0.7";
-        document.getElementById("knapp"+b).innerHTML = "Kasta";
-        document.getElementById("knapp"+b).style = "background-color: rgb(255, 98, 98)"/*Red*/;
-        console.info(buttons);
+function buttonClicked(i) {
+    if (buttons[i-1]=="håll") {
+        buttons[i-1]="kasta";
+        document.getElementById("kort"+i).style = "opacity: 0.7";
+        document.getElementById("knapp"+i).innerHTML = "Kasta";
+        document.getElementById("knapp"+i).style = "background-color: rgb(255, 98, 98);"/*Red*/;
+        document.getElementById("knapp"+i).style.color = "black";
     }
-    else if (buttons[b-1]="kasta") {
-        buttons[b-1]="håll";
-        document.getElementById("kort"+b).style = "opacity: 1";
-        document.getElementById("knapp"+b).innerHTML = "Håll";
-        document.getElementById("knapp"+b).style = "background-color: #4CAF50"/*Green*/;
-        console.info(buttons);
+    else if (buttons[i-1]="kasta") {
+        buttons[i-1]="håll";
+        document.getElementById("kort"+i).style = "opacity: 1";
+        document.getElementById("knapp"+i).innerHTML = "Håll";
+        document.getElementById("knapp"+i).style = "background-color: #4CAF50;"/*Green*/;
+        document.getElementById("knapp"+i).style.color = "white";
     }
 
 }
@@ -140,3 +127,31 @@ for (let i=2; i < 6; i++) {
         buttonClicked(i);
     });
 }
+
+function changeCards(deck) {
+    for (let i = 1; i < 6; i++) {
+        if (buttons[i-1]=="kasta") {
+            let topCard = deck.shift();
+            document.getElementById("kort"+i).innerHTML = "<img id=\"img"+i+"\"" +" src=\"poker-qr\\" + topCard.rank + topCard.suit +".svg\" alt=\"Pokerkort\" width=\"250\" height=\"363\">";
+
+            cardsLeft -= 1;
+            document.getElementById("remainingcards").innerHTML = "<p>Det är " +cardsLeft + " kort kvar i kortleken</p>"
+            
+            buttons[i-1]="håll";
+            document.getElementById("kort"+i).style = "opacity: 1";
+            document.getElementById("knapp"+i).innerHTML = "Håll";
+            document.getElementById("knapp"+i).style = "background-color: #4CAF50;"/*Green*/;
+            document.getElementById("knapp"+i).style.color = "white";
+        }
+        
+    }
+    console.log(cards)
+}
+
+document.getElementById("byte").addEventListener("click", function() {
+    try {changeCards(cards);
+    } catch (error) {
+        console.error(error);
+        alert("Det finns inte tillräckligt många kort kvar i kortleken!");
+    }
+});
