@@ -1,58 +1,27 @@
 var cardsLeft = 47;
 var buttons = ["håll","håll","håll","håll","håll"];
 
-var cards = [];
-for (suit = 4; suit > 0; suit--) {
-  for (rank = 13; rank > 0; rank--) {
-    cards.push({
-      suit: suit,
-      rank: rank
-    });
-  }
+
+function createDeck() {
+    deck = [];
+    const suits = ["H","S","D","C"];
+    const ranks = ["A",2,3,4,5,6,7,8,9,"T","J","Q","K"];
+        
+    suits.forEach(suit => {
+        ranks.forEach(rank => {
+            deck.push({
+                suit: suit,
+                rank: rank
+            })
+        })
+    })
+    return deck;
 }
-
-console.log(cards);
-
-cards.forEach(element => {
-    if (element.suit == 1) {
-        element.suit = "H";
-    }
-
-    else if (element.suit == 2) {
-        element.suit = "S";
-    }
     
-    else if (element.suit == 3) {
-        element.suit = "D";
-    }
-
-    else if (element.suit == 4) {
-        element.suit = "C";
-    }
-
-    if (element.rank == 1) {
-        element.rank = "A";
-    }
-
-    else if (element.rank == 10) {
-        element.rank = "T";
-    }
-
-    else if (element.rank == 11) {
-        element.rank = "J";
-    }
-
-    else if (element.rank == 12) {
-        element.rank = "Q";
-    }
-
-    else if (element.rank == 13) {
-        element.rank = "K";
-    }
-
-});
+var cards = createDeck();
 
 console.log(cards);
+
 
 function shuffle(a) {
     let j, x, i;
@@ -76,9 +45,8 @@ function shuffleTwo(deck) {
         let randPos = Math.floor(Math.random() * (tempDeck.length));
         deck.push(tempDeck[randPos]);
 
-        const index = tempDeck.indexOf(tempDeck[randPos]);
-        if (index > -1) {
-            tempDeck.splice(index, 1);
+        if (randPos > -1) {
+            tempDeck.splice(randPos, 1);
         }
     }
 }
@@ -103,17 +71,21 @@ printCards(cards);
 function buttonClicked(i) {
     if (buttons[i-1]=="håll") {
         buttons[i-1]="kasta";
-        document.getElementById("kort"+i).style = "opacity: 0.7";
-        document.getElementById("knapp"+i).innerHTML = "Kasta";
-        document.getElementById("knapp"+i).style = "background-color: rgb(255, 98, 98);"/*Red*/;
-        document.getElementById("knapp"+i).style.color = "black";
+        document.getElementById("img"+i).style = "opacity: 0.2";
+        document.getElementById("kort"+i).innerHTML = document.getElementById("kort"+i).innerHTML + "<div class=\"cardtext\">Kasta</div>";
+        
+        document.getElementById("knappb"+i).innerHTML = "Kasta";
+        document.getElementById("knappb"+i).style = "background-color: rgb(255, 98, 98);"/*Red*/;
+        document.getElementById("knappb"+i).style.color = "black";
     }
     else if (buttons[i-1]="kasta") {
         buttons[i-1]="håll";
-        document.getElementById("kort"+i).style = "opacity: 1";
-        document.getElementById("knapp"+i).innerHTML = "Håll";
-        document.getElementById("knapp"+i).style = "background-color: #4CAF50;"/*Green*/;
-        document.getElementById("knapp"+i).style.color = "white";
+        document.getElementById("img"+i).style = "opacity: 1";
+        document.getElementById("kort"+i).innerHTML = document.getElementById("kort"+i).innerHTML.replace('<div class=\"cardtext\">Kasta</div>','');
+
+        document.getElementById("knappb"+i).innerHTML = "Håll";
+        document.getElementById("knappb"+i).style = "background-color: #4CAF50;"/*Green*/;
+        document.getElementById("knappb"+i).style.color = "white";
     }
 
 }
@@ -139,9 +111,9 @@ function changeCards(deck) {
             
             buttons[i-1]="håll";
             document.getElementById("kort"+i).style = "opacity: 1";
-            document.getElementById("knapp"+i).innerHTML = "Håll";
-            document.getElementById("knapp"+i).style = "background-color: #4CAF50;"/*Green*/;
-            document.getElementById("knapp"+i).style.color = "white";
+            document.getElementById("knappb"+i).innerHTML = "Håll";
+            document.getElementById("knappb"+i).style = "background-color: #4CAF50;"/*Green*/;
+            document.getElementById("knappb"+i).style.color = "white";
         }
         
     }

@@ -5,6 +5,16 @@ body {
 
 }
 
+#beach-body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url('jessica-pamp-sGRMspZmfPE-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;background-color: grey;
+
+}
+
 .center {
     margin: auto;
     width: 70%;
@@ -14,15 +24,45 @@ body {
     text-align: center;
 }
 
+.center2 {
+    margin: 0 auto;
+}
+
+.kort {
+    position: relative;
+    text-align: center;
+}
+
+.cardtext {
+    position: absolute;
+    bottom: 165px;
+    right: 82px;
+    font-size: 40px;
+    color: red;
+}
+
 #kortbilder {
-    background-color: green;
+    background-color: rgba(0, 255, 0, 0.0);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 370px 100px;
     grid-gap: 10px;
 }
 
+
 .button {
+    background: rgba(76, 175, 80, 0.0); /* Green background with 0% opacity */
+    border: none;
+    padding: 0px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 0px 0px;
+    cursor: pointer;
+}
+
+.button2 {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -32,7 +72,6 @@ body {
     display: inline-block;
     font-size: 32px;
     margin: 4px 2px;
-    cursor: pointer;
 }
 
 .box1 {
@@ -46,43 +85,68 @@ body {
 }
 
 .box3 {
-    grid-column: 2 / 3;
-    grid-row: 1;
+    grid-column: 1 / 2;
+    grid-row: 3;
 }
 
 .box4 {
     grid-column: 2 / 3;
-    grid-row: 2;
-}
-
-.box5 {
-    grid-column: 3 / 4;
     grid-row: 1;
 }
 
-.box6 {
-    grid-column: 3 / 4;
+.box5 {
+    grid-column: 2 / 3;
     grid-row: 2;
 }
 
+.box6 {
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+
 .box7 {
-    grid-column: 4 / 5;
+    grid-column: 3 / 4;
     grid-row: 1;
 }
 
 .box8 {
-    grid-column: 4 / 5;
+    grid-column: 3 / 4;
     grid-row: 2;
 }
 
 .box9 {
+    grid-column: 3 / 4;
+    grid-row: 3;
+}
+
+.box10 {
+    grid-column: 4 / 5;
+    grid-row: 1;
+}
+
+.box11 {
+    grid-column: 4 / 5;
+    grid-row: 2;
+}
+
+.box12 {
+    grid-column: 4 / 5;
+    grid-row: 3;
+}
+
+.box13 {
     grid-column: 5 / 6;
     grid-row: 1;
 }
 
-.box10 {
+.box14 {
     grid-column: 5 / 6;
     grid-row: 2;
+}
+
+.box15 {
+    grid-column: 5 / 6;
+    grid-row: 3;
 }
 
 #img1 {
@@ -95,7 +159,14 @@ body {
 }
 
 #remainingcards {
-    font-size: 32px;
+    font-size: 40px;
+}
+
+#meddelande {
+    font-size: 40px;
+}
+#coolidge {
+    font-size: 30px;
 }
 
 header {
@@ -114,4 +185,9 @@ ul#menu li {
     display: inline;
 
 }
+
+ul#menu a {
+    font-size: 24px;
+} 
+
 
