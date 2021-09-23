@@ -74,18 +74,12 @@ function buttonClicked(i) {
         document.getElementById("img"+i).style = "opacity: 0.2";
         document.getElementById("kort"+i).innerHTML = document.getElementById("kort"+i).innerHTML + "<div class=\"cardtext\">Kasta</div>";
         
-        document.getElementById("knappb"+i).innerHTML = "Kasta";
-        document.getElementById("knappb"+i).style = "background-color: rgb(255, 98, 98);"/*Red*/;
-        document.getElementById("knappb"+i).style.color = "black";
     }
     else if (buttons[i-1]="kasta") {
         buttons[i-1]="håll";
         document.getElementById("img"+i).style = "opacity: 1";
         document.getElementById("kort"+i).innerHTML = document.getElementById("kort"+i).innerHTML.replace('<div class=\"cardtext\">Kasta</div>','');
 
-        document.getElementById("knappb"+i).innerHTML = "Håll";
-        document.getElementById("knappb"+i).style = "background-color: #4CAF50;"/*Green*/;
-        document.getElementById("knappb"+i).style.color = "white";
     }
 
 }
@@ -111,9 +105,6 @@ function changeCards(deck) {
             
             buttons[i-1]="håll";
             document.getElementById("kort"+i).style = "opacity: 1";
-            document.getElementById("knappb"+i).innerHTML = "Håll";
-            document.getElementById("knappb"+i).style = "background-color: #4CAF50;"/*Green*/;
-            document.getElementById("knappb"+i).style.color = "white";
         }
         
     }

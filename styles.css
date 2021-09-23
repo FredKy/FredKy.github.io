@@ -1,17 +1,37 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: grey;
+    background-color: rgb(35, 110, 149);
 
 }
 
-#beach-body {
+#game-body {
     margin: 0px;
     padding: 0px;
     background-image: url('jessica-pamp-sGRMspZmfPE-unsplash.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;background-color: grey;
+    background-size: cover;
+
+}
+
+#contact-body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url('dharmendra-sahu-Ia2Kjtrx8y4-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+#about-body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url('alin-meceanu-4P7oJbzQuBU-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
 }
 
@@ -28,6 +48,15 @@ body {
     margin: 0 auto;
 }
 
+.text-position {
+    position: absolute;
+    top:  57%;
+    left: 44%;
+    width:  200px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}
+
 .kort {
     position: relative;
     text-align: center;
@@ -36,9 +65,10 @@ body {
 .cardtext {
     position: absolute;
     bottom: 165px;
-    right: 82px;
+    right: 76px;
     font-size: 40px;
     color: red;
+    font-family: Arial;
 }
 
 #kortbilder {
@@ -62,18 +92,6 @@ body {
     cursor: pointer;
 }
 
-.button2 {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 32px;
-    margin: 4px 2px;
-}
-
 .box1 {
     grid-column: 1 / 2;
     grid-row: 1;
@@ -85,68 +103,43 @@ body {
 }
 
 .box3 {
-    grid-column: 1 / 2;
-    grid-row: 3;
+    grid-column: 2 / 3;
+    grid-row: 1;
 }
 
 .box4 {
     grid-column: 2 / 3;
-    grid-row: 1;
-}
-
-.box5 {
-    grid-column: 2 / 3;
     grid-row: 2;
 }
 
+.box5 {
+    grid-column: 3 / 4;
+    grid-row: 1;
+}
+
 .box6 {
-    grid-column: 2 / 3;
-    grid-row: 3;
+    grid-column: 3 / 4;
+    grid-row: 2;
 }
 
 .box7 {
-    grid-column: 3 / 4;
+    grid-column: 4 / 5;
     grid-row: 1;
 }
 
 .box8 {
-    grid-column: 3 / 4;
+    grid-column: 4 / 5;
     grid-row: 2;
 }
 
 .box9 {
-    grid-column: 3 / 4;
-    grid-row: 3;
+    grid-column: 5 / 6;
+    grid-row: 1;
 }
 
 .box10 {
-    grid-column: 4 / 5;
-    grid-row: 1;
-}
-
-.box11 {
-    grid-column: 4 / 5;
-    grid-row: 2;
-}
-
-.box12 {
-    grid-column: 4 / 5;
-    grid-row: 3;
-}
-
-.box13 {
-    grid-column: 5 / 6;
-    grid-row: 1;
-}
-
-.box14 {
     grid-column: 5 / 6;
     grid-row: 2;
-}
-
-.box15 {
-    grid-column: 5 / 6;
-    grid-row: 3;
 }
 
 #img1 {
@@ -154,23 +147,44 @@ body {
   }
 
 #byte {
-    background-color: rgb(255, 238, 0);
-    color:black;
-}
+    background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+    border-radius: 28px;
+    text-shadow: 1px 1px 3px #ffee66;
+    color: #000000;
+    font-size: 37px;
+    padding: 10px 20px 10px 20px;
+  }
+
+#byte:hover {
+    background: #4cff79;
+    background-image: linear-gradient(to bottom, #4cff79, #42d934);
+    cursor: pointer;
+ }
 
 #remainingcards {
     font-size: 40px;
+    font-family: Arial;
 }
 
 #meddelande {
     font-size: 40px;
+    font-family: Arial;
 }
 #coolidge {
     font-size: 30px;
+    font-family: Arial;
+}
+
+#email {
+    font-size: 40px;
+    font-family: Arial;
+    color: rgb(35, 110, 149);
+    text-decoration: none;
 }
 
 header {
-    background-color:lightseagreen;
+    background-color:rgb(29, 81, 113);
 
     padding: 10px;
 
@@ -188,6 +202,8 @@ ul#menu li {
 
 ul#menu a {
     font-size: 24px;
+    font-family: Arial;
+    color: rgb(194, 178, 128);
 } 
 
 
