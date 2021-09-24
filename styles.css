@@ -74,7 +74,7 @@ body {
 #kortbilder {
     background-color: rgba(0, 255, 0, 0.0);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 370px 100px;
     grid-gap: 10px;
 }
@@ -194,7 +194,7 @@ header {
 ul#menu li {
     
     list-style-type: none;
-    margin: 100px;
+    margin: 80px;
     padding: 0;
     display: inline;
 

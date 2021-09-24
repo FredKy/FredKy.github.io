@@ -1,4 +1,3 @@
-var cardsLeft = 47;
 var buttons = ["håll","håll","håll","håll","håll"];
 
 
@@ -23,36 +22,21 @@ var cards = createDeck();
 console.log(cards);
 
 
-function shuffle(a) {
-    let j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
-    }
-}
-
-function shuffleTwo(deck) {
+function shuffle(deck) {
     let tempDeck = [];
     while (deck.length != 0) {
        tempDeck.push(deck.pop());
     }
 
-    console.log(tempDeck);
-
     while (tempDeck.length != 0) {
         let randPos = Math.floor(Math.random() * (tempDeck.length));
         deck.push(tempDeck[randPos]);
-
-        if (randPos > -1) {
-            tempDeck.splice(randPos, 1);
-        }
+        tempDeck.splice(randPos, 1);
     }
 }
 
 
-shuffleTwo(cards);
+shuffle(cards);
 
 console.log(cards);
 
@@ -84,11 +68,7 @@ function buttonClicked(i) {
 
 }
 
-document.getElementById("knapp1").addEventListener("click", function() {
-    buttonClicked(1);
-});
-
-for (let i=2; i < 6; i++) {
+for (let i=1; i < 6; i++) {
     document.getElementById("knapp"+i).addEventListener("click", function() {
         buttonClicked(i);
     });
@@ -100,8 +80,7 @@ function changeCards(deck) {
             let topCard = deck.shift();
             document.getElementById("kort"+i).innerHTML = "<img id=\"img"+i+"\"" +" src=\"poker-qr\\" + topCard.rank + topCard.suit +".svg\" alt=\"Pokerkort\" width=\"250\" height=\"363\">";
 
-            cardsLeft -= 1;
-            document.getElementById("remainingcards").innerHTML = "<p>Det är " +cardsLeft + " kort kvar i kortleken</p>"
+            document.getElementById("remainingcards").innerHTML = "<p>Det är " +deck.length + " kort kvar i kortleken</p>"
             
             buttons[i-1]="håll";
             document.getElementById("kort"+i).style = "opacity: 1";
