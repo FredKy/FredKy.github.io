@@ -1,2 +1,0 @@
-# fredky.github.io
- 
